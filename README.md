@@ -108,39 +108,7 @@ The server interface is pretty much the same, but instead of the interfaces it s
 
 ## OpenWrt / LuCI
 
-engarde is available as OpenWrt packages with full LuCI integration:
-
-- **engarde-client** / **engarde-server** — procd service management and UCI configuration
-- **luci-app-engarde** — configure and monitor engarde instances from the LuCI web interface
-
-### Install on a running OpenWrt 23.05 router
-
-SSH into your router and add the signing key and package repository for your architecture:
-
-```sh
-# Add signing key
-wget -qO /etc/opkg/keys/f59c896b325e81c9 \
-  https://porech.github.io/openwrt-engarde/engarde-repo.pub
-```
-
-**x86_64:** `echo "src/gz engarde https://porech.github.io/openwrt-engarde/x86_64" >> /etc/opkg/customfeeds.conf`
-
-**aarch64_generic:** `echo "src/gz engarde https://porech.github.io/openwrt-engarde/aarch64_generic" >> /etc/opkg/customfeeds.conf`
-
-**arm_cortex-a7_neon-vfpv4:** `echo "src/gz engarde https://porech.github.io/openwrt-engarde/arm_cortex-a7_neon-vfpv4" >> /etc/opkg/customfeeds.conf`
-
-Then install:
-
-```sh
-opkg update
-opkg install engarde-client luci-app-engarde
-```
-
-Open LuCI and navigate to **Services → Engarde** to configure your instances.
-
-### Build from source
-
-See the [openwrt-engarde](https://github.com/porech/openwrt-engarde) repository for instructions on building from source with the OpenWrt SDK.
+engarde is available as OpenWrt packages with full LuCI integration for OpenWrt 24.10 and 25.12. Pre-built packages, installation instructions, and build-from-source documentation are available in the [openwrt-engarde](https://github.com/porech/openwrt-engarde) repository.
 
 ## It's useless! It's a bad copy of {some-other-software}
 Honestly, we are quite lazy people, and before coding something we always look for an existing solution that would suit our needings. This time, we really couldn't find one. If you know something similar, please, PLEASE open an issue with title "engarde is a bad copy of ...", we'd love to know that!
